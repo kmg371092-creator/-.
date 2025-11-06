@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 친환경 뷰티 웹페이지</title>
+<style>
+  body {
+    margin: 0;
+    font-family: "Pretendard", sans-serif;
+    color: #333;
+    scroll-behavior: smooth;
+  }
+  section {
+    height: 100vh;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #ffffffcc;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+    font-weight: bold;
+  }
+  header a { color: #333; text-decoration: none; }
+  header a:hover { color: #009688; }
+  h1, h2 { color: #009688; }
+  button {
+    background: #009688;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  button:hover { background: #00796b; }
+  .ai-result {
+    margin-top: 20px;
+    background: #f1f1f1;
+    padding: 20px;
+    border-radius: 8px;
+  }
+</style>
+</head>
+
+<body>
+<header>
+  <a href="#home">소개</a>
+  <a href="#ai">AI추천</a>
+  <a href="#campaign">캠페인</a>
+  <a href="#news">뉴스</a>
+  <a href="#contact">문의</a>
+</header>
+
+<section id="home">
+  <h1>지속 가능한 아름다움 🌱</h1>
+  <p>AI와 함께하는 친환경 뷰티 라이프!  
+  아름다움과 환경을 동시에 지킬 수 있는 새로운 메이크업 문화를 소개합니다.</p>
+</section>
+
+<section id="ai">
+  <h2>AI가 추천하는 나만의 친환경 화장품 💄</h2>
+  <p>간단한 선택을 통해 AI가 당신에게 맞는 친환경 화장품을 추천합니다.</p>
+  
+  <label>피부 타입:
+    <select id="skin">
+      <option value="건성">건성</option>
+      <option value="지성">지성</option>
+      <option value="민감성">민감성</option>
+    </select>
+  </label><br><br>
+  
+  <label>관심 분야:
+    <select id="interest">
+      <option value="스킨케어">스킨케어</option>
+      <option value="메이크업">메이크업</option>
+      <option value="헤어케어">헤어케어</option>
+    </select>
+  </label><br><br>
+  
+  <button onclick="recommend()">AI 추천받기</button>
+  <div id="result" class="ai-result"></div>
+</section>
+
+<section id="campaign" style="background:#e0f2f1;">
+  <h2>♻️ 재활용 메이크업 도전 캠페인</h2>
+  <p>화장품 용기를 재활용하거나 리필 제품을 사용하는 습관을 만들어보세요!  
+  AI가 지속 가능한 브랜드 리스트도 함께 제공합니다.</p>
+</section>
+
+<section id="news">
+  <h2>🌍 친환경 뷰티 뉴스</h2>
+  <ul>
+    <li>비건 화장품 시장, 전년 대비 25% 성장</li>
+    <li>플라스틱 제로 용기 화장품 출시 확대</li>
+    <li>AI 분석으로 피부 트러블 감소 프로젝트 진행</li>
+  </ul>
+</section>
+
+<section id="contact" style="background:#f9f9f9;">
+  <h2>후원 및 문의</h2>
+  <p>친환경 뷰티 캠페인에 함께하고 싶다면 연락주세요.</p>
+  <p>📧 eco_beauty@ai.com</p>
+</section>
+
+<script>
+function recommend() {
+  const skin = document.getElementById("skin").value;
+  const interest = document.getElementById("interest").value;
+  let message = "";
+
+  if (skin === "민감성" && interest === "스킨케어") {
+    message = "AI 추천: '퓨어리프 젠틀 토너' 🌿 — 무향, 천연성분, 재활용 용기 사용!";
+  } else if (skin === "지성" && interest === "메이크업") {
+    message = "AI 추천: '그린마인드 파우더' 💚 — 유분 조절, 비건 인증, 친환경 패키지!";
+  } else if (skin === "건성" && interest === "헤어케어") {
+    message = "AI 추천: '모이스처 플랜트 헤어오일' 🌾 — 건조 모발에 수분 공급, 동물 실험 無!";
+  } else {
+    message = "AI 추천: '에코브랜드 기본 세트' 🌸 — 전 제품 친환경 소재 사용!";
+  }
+
+  document.getElementById("result").innerHTML = message;
+}
+</script>
+
+</body>
+</html>
